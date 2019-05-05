@@ -1,0 +1,60 @@
+<DataModel xmlns:gr="http://www.webratio.com/2006/WebML/Graph">
+  <Entity gr:x="95" gr:y="190" id="ent3" name="Customer" duration="persistent" attributeOrder="ent3#att5 ent3#att6 ent3#att7 ent3#att8 ent3#att9 ent3#att10">
+    <Attribute id="ent3#att5" key="true" name="id" type="string"/>
+    <Attribute id="ent3#att6" name="Email" type="string" key="false"/>
+    <Attribute id="ent3#att10" name="Phone" type="string"/>
+    <Attribute id="ent3#att9" name="Address" type="string"/>
+    <Attribute id="ent3#att8" name="Name" type="string"/>
+    <Attribute id="ent3#att7" name="Title" type="string"/>
+  </Entity>
+  <Entity gr:x="635" gr:y="235" id="ent4" name="Shopping Cart" duration="persistent" attributeOrder="ent4#att11 ent4#att12 ent4#att13 ent4#att14">
+    <Attribute id="ent4#att11" key="true" name="CarId" type="integer"/>
+    <Attribute id="ent4#att14" name="CustomerId" type="string"/>
+    <Attribute id="ent4#att13" name="OrderTotal" type="decimal"/>
+    <Attribute id="ent4#att12" name="Created" type="date"/>
+  </Entity>
+  <Entity gr:x="320" gr:y="740" id="ent5" name="CreditCard" duration="persistent" attributeOrder="ent5#att15 ent5#att16 ent5#att17">
+    <Attribute id="ent5#att15" key="false" name="CardNumber" type="float"/>
+    <Attribute id="ent5#att17" name="CustomerId" type="string"/>
+    <Attribute id="ent5#att16" name="ExpiratiionDate" type="date"/>
+  </Entity>
+  <Entity gr:x="1210" gr:y="685" id="ent6" name="Product" duration="persistent" attributeOrder="ent6#att18 ent6#att19 ent6#att20 ent6#att21">
+    <Attribute id="ent6#att18" key="true" name="ProductId" type="integer"/>
+    <Attribute id="ent6#att21" name="Price" type="float"/>
+    <Attribute id="ent6#att20" name="Description" type="string"/>
+    <Attribute id="ent6#att19" name="Name" type="string"/>
+  </Entity>
+  <Entity gr:x="1165" gr:y="265" id="ent7" name="Order" duration="persistent" attributeOrder="ent7#att22 ent7#att23 ent7#att24">
+    <Attribute id="ent7#att22" key="true" name="CartId" type="integer"/>
+    <Attribute id="ent7#att24" name="ProductQuantity" type="integer"/>
+    <Attribute id="ent7#att23" name="ProductId" type="integer" key="true"/>
+  </Entity>
+  <Relationship id="rel1" name="Customer_CreditCard" sourceEntity="ent3" targetEntity="ent5">
+    <RelationshipRole1 id="rel1#role1" name="CustomerToCreditCard" maxCard="1"/>
+    <RelationshipRole2 id="rel1#role2" name="CreditCardToCustomer" maxCard="N"/>
+  </Relationship>
+  <Relationship id="rel2" name="Customer_Shopping Cart" sourceEntity="ent3" targetEntity="ent4">
+    <RelationshipRole1 id="rel2#role3" name="CustomerToShopping Cart" maxCard="1"/>
+    <RelationshipRole2 id="rel2#role4" name="Shopping CartToCustomer" maxCard="N"/>
+  </Relationship>
+  <Relationship id="rel3" name="CreditCard_Shopping Cart" sourceEntity="ent5" targetEntity="ent4">
+    <RelationshipRole1 id="rel3#role5" name="CreditCardToShopping Cart" maxCard="1"/>
+    <RelationshipRole2 id="rel3#role6" name="Shopping CartToCreditCard" maxCard="1"/>
+  </Relationship>
+  <Relationship id="rel4" name="Shopping Cart_Order" sourceEntity="ent4" targetEntity="ent7">
+    <RelationshipRole1 id="rel4#role7" name="Shopping CartToOrder" maxCard="1"/>
+    <RelationshipRole2 id="rel4#role8" name="OrderToShopping Cart" maxCard="N"/>
+  </Relationship>
+  <Relationship id="rel6" name="Order_Product" sourceEntity="ent7" targetEntity="ent6">
+    <RelationshipRole1 id="rel6#role11" name="OrderToProduct" maxCard="N"/>
+    <RelationshipRole2 id="rel6#role12" name="ProductToOrder" maxCard="1"/>
+  </Relationship>
+  <Entity gr:x="1205" gr:y="1085" id="ent8" name="Category" duration="persistent" attributeOrder="ent8#att25 ent8#att26">
+    <Attribute id="ent8#att25" key="true" name="CategoryId" type="integer"/>
+    <Attribute id="ent8#att26" name="Name" type="string"/>
+  </Entity>
+  <Relationship id="rel7" name="Product_Category" sourceEntity="ent6" targetEntity="ent8">
+    <RelationshipRole1 id="rel7#role13" name="ProductToCategory" maxCard="N"/>
+    <RelationshipRole2 id="rel7#role14" name="CategoryToProduct" maxCard="1"/>
+  </Relationship>
+</DataModel>

@@ -1,0 +1,9 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="195" gr:y="385" id="mov1#opm3" name="Empty">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#opm3#icu3" gr:x="30" gr:y="60">
+      <InputCollectorParameter id="mov1#opm3#icu3#icp5" name="Cart"/>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="440" gr:y="45" id="mov1#opm3#okcu7" name="Cart Emptied"/>
+    <KOCollectorUnit gr:x="440" gr:y="180" id="mov1#opm3#kocu4" name="Cart Not Emptied"/>
+  </OperationUnits>
+</OperationModule>
