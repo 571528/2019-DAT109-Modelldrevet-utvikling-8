@@ -1,0 +1,52 @@
+<DataModel xmlns:gr="http://www.webratio.com/2006/WebML/Graph">
+  <Entity gr:x="100" gr:y="210" id="ent1" name="Admin" duration="persistent" attributeOrder="ent1#att1 ent1#att5">
+    <Attribute id="ent1#att1" key="true" name="username" type="integer"/>
+    <Attribute id="ent1#att5" name="password" type="password"/>
+  </Entity>
+  <Entity gr:x="565" gr:y="90" id="ent2" name="StandAdmin" duration="persistent" attributeOrder="ent2#att2 ent2#att6 ent2#att7">
+    <Attribute id="ent2#att2" key="true" name="username" type="string"/>
+    <Attribute id="ent2#att7" name="StandId" type="integer"/>
+    <Attribute id="ent2#att6" name="password" type="string"/>
+  </Entity>
+  <Entity gr:x="105" gr:y="640" id="ent3" name="Stand" duration="persistent" attributeOrder="ent3#att3 ent3#att8">
+    <Attribute id="ent3#att3" key="true" name="id" type="integer"/>
+    <Attribute id="ent3#att8" name="ResultsId" type="integer"/>
+  </Entity>
+  <Entity gr:x="735" gr:y="650" id="ent4" name="Vote" duration="persistent" attributeOrder="ent4#att12 ent4#att4 ent4#att14 ent4#att13">
+    <Attribute id="ent4#att4" key="false" name="StandId" type="integer"/>
+    <Attribute id="ent4#att12" name="VoteId" key="true" type="integer"/>
+    <Attribute id="ent4#att13" name="Score" type="string"/>
+    <Attribute id="ent4#att14" name="UserId" type="integer"/>
+  </Entity>
+  <Relationship id="rel2" name="Admin_Stand" sourceEntity="ent1" targetEntity="ent3">
+    <RelationshipRole1 id="rel2#role3" name="AdminToStand" maxCard="1"/>
+    <RelationshipRole2 id="rel2#role4" name="StandToAdmin" maxCard="N"/>
+  </Relationship>
+  <Relationship id="rel3" name="StandAdmin_Stand" sourceEntity="ent2" targetEntity="ent3">
+    <RelationshipRole1 id="rel3#role5" name="StandAdminToStand" maxCard="1"/>
+    <RelationshipRole2 id="rel3#role6" name="StandToStandAdmin" maxCard="1"/>
+  </Relationship>
+  <Relationship id="rel4" name="Voters_Stand" sourceEntity="ent4" targetEntity="ent3">
+    <RelationshipRole1 id="rel4#role7" name="VotersToStand" maxCard="N"/>
+    <RelationshipRole2 id="rel4#role8" name="StandToVoters" maxCard="1"/>
+  </Relationship>
+  <Entity gr:x="170" gr:y="1055" id="ent5" name="Results" duration="persistent" attributeOrder="ent5#att10 ent5#att11">
+    <Attribute id="ent5#att10" key="true" name="id" type="integer"/>
+    <Attribute id="ent5#att11" name="Votes" type="integer"/>
+  </Entity>
+  <Relationship id="rel5" name="Stand_Results" sourceEntity="ent3" targetEntity="ent5">
+    <RelationshipRole1 id="rel5#role9" name="StandToResults" maxCard="N"/>
+    <RelationshipRole2 id="rel5#role10" name="ResultsToStand" maxCard="1"/>
+  </Relationship>
+  <Relationship id="rel6" name="Voters_Results" sourceEntity="ent4" targetEntity="ent5">
+    <RelationshipRole1 id="rel6#role11" name="VotersToResults" maxCard="N"/>
+    <RelationshipRole2 id="rel6#role12" name="ResultsToVoters" maxCard="1"/>
+  </Relationship>
+  <Entity gr:x="790" gr:y="1115" id="ent6" name="User" duration="persistent">
+    <Attribute id="ent6#att15" key="true" name="id" type="integer"/>
+  </Entity>
+  <Relationship id="rel7" name="Vote_User" sourceEntity="ent4" targetEntity="ent6">
+    <RelationshipRole1 id="rel7#role13" name="VoteToUser" maxCard="N"/>
+    <RelationshipRole2 id="rel7#role14" name="UserToVote" maxCard="1"/>
+  </Relationship>
+</DataModel>
