@@ -1,9 +1,0 @@
-<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="275" gr:y="195" id="mov3#opm7" name="Scan QR-code">
-  <OperationUnits>
-    <InputCollectorUnit id="mov3#opm7#icu11" gr:x="30" gr:y="420">
-      <InputCollectorParameter id="mov3#opm7#icu11#icp5" name="QR-Code"/>
-      <OKLink id="mov3#opm7#icu11#oln19" name="OKFlow19" to="mov3#opm7#lgu8" automaticCoupling="true"/>
-    </InputCollectorUnit>
-    <LoginUnit gr:x="415" gr:y="450" id="mov3#opm7#lgu8" name="Login"/>
-  </OperationUnits>
-</OperationModule>
